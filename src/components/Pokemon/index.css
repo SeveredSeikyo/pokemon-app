@@ -1,0 +1,26 @@
+.main-container{
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    padding: 20px;
+}
+
+.main-container input{
+    padding: 5px;
+    justify-self: center;
+    width: 50%;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid black;
+}
+
+.pokemon-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
