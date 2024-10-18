@@ -66,11 +66,14 @@ class Pokemon extends Component{
                         (
                             <>
                             <div className="pokemon-container">
-                             {filteredpokemondetails.map(pokemon=><PokemonItem pokemon={pokemon} key={pokemon.name}/>)}
-                                                         {/*</div>
+                             {filteredpokemondetails.map(pokemon=><PokemonItem pokemon={pokemon} key={pokemon.name}/>)}      
+                            </div> 
+                            {/*
                             <button type="button" onClick={this.changeOffset}>Load More..</button>
-                            </>*/}
+                            */}
+                            </>
                         )
+        
                     }
                                                    
                 </div>
