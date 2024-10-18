@@ -12,8 +12,8 @@ class Pokemon extends Component{
     }
 
     fetchPokemon = async () => {
-        const {offset} = this.state;
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=60&offset=${offset}`);
+        //const {offset} = this.state;
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=-1');
         const data = await response.json();
     
         // Loop through each Pokémon and fetch their details
@@ -67,9 +67,9 @@ class Pokemon extends Component{
                             <>
                             <div className="pokemon-container">
                              {filteredpokemondetails.map(pokemon=><PokemonItem pokemon={pokemon} key={pokemon.name}/>)}
-                            </div>
+                            /*</div>
                             <button type="button" onClick={this.changeOffset}>Load More..</button>
-                            </>
+                            </>*/
                         )
                     }
                                                    
