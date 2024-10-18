@@ -59,15 +59,16 @@ class Pokemon extends Component{
                     <input type="search" onChange={this.searchPokemon} placeholder='Search Pokemon' value={searchTerm}/>
                 </div>
                 <div>
-                    {isLoading ? <Oval margin="20px"/> : 
+                    {isLoading ? 
+                           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+                             <Oval />
+                           </div> : 
                         (
                             <>
                             <div className="pokemon-container">
                              {filteredpokemondetails.map(pokemon=><PokemonItem pokemon={pokemon} key={pokemon.name}/>)}
                             </div>
-                            <div className="button-container">
-                                <button type="button" onClick={this.changeOffset}/>
-                            </div>
+                            <button type="button" onClick={this.changeOffset}/>
                             </>
                         )
                     }
