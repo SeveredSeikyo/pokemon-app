@@ -8,10 +8,12 @@ class Pokemon extends Component{
         isLoading:true,
         pokemondetails:null,
         searchTerm: "",
+        offset:0,
     }
 
     fetchPokemon = async () => {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=60');
+        const {offset} = this.state;
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=60&offset={offset}');
         const data = await response.json();
     
         // Loop through each Pokémon and fetch their details
@@ -40,6 +42,13 @@ class Pokemon extends Component{
         })
     }
 
+    changeOffset = ()=>{
+        this.setState(prevState=>({
+            offset : prevState.offset+60,
+            isLoading : true,
+        }));
+    }
+
     render(){
         const {pokemondetails, isLoading, searchTerm}=this.state;
         const filteredpokemondetails=Array.isArray(pokemondetails)?pokemondetails.filter(pokemon=>pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())):[]
@@ -49,7 +58,15 @@ class Pokemon extends Component{
                     <input type="search" onChange={this.searchPokemon} placeholder='Search Pokemon' value={searchTerm}/>
                 </div>
                 <div className="pokemon-container">
-                    {isLoading ? <Oval align="center"/> : filteredpokemondetails.map(pokemon=><PokemonItem pokemon={pokemon} key={pokemon.name}/>)}
+                    {isLoading ? <Oval align="center"/> : 
+                        (
+                            <>
+                            {filteredpokemondetails.map(pokemon=><PokemonItem pokemon={pokemon} key={pokemon.name}/>)}
+                            <button type="button" onClick={this.changeOffset}/>
+                            </>
+                        )
+                    }
+                                                   
                 </div>
             </div>
         )
