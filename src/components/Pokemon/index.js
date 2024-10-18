@@ -63,7 +63,9 @@ class Pokemon extends Component{
                         (
                             <>
                             {filteredpokemondetails.map(pokemon=><PokemonItem pokemon={pokemon} key={pokemon.name}/>)}
-                            <button type="button" onClick={this.changeOffset}/>
+                            <div className="button-container">
+                                <button type="button" onClick={this.changeOffset}/>
+                            </div>
                             </>
                         )
                     }
