@@ -47,6 +47,7 @@ class Pokemon extends Component{
             offset : prevState.offset+60,
             isLoading : true,
         }));
+        this.fetchPokemon();
     }
 
     render(){
